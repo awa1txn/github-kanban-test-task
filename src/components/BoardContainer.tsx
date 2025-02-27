@@ -133,7 +133,9 @@ const BoardContainer = () => {
     formatedIssueResponse.boards[0].cards[0].repository_url;
 
   const [stargazers, setStargazers] = useState('');
-  getRepoNotation(issue.query).then((value) => setStargazers(value['stargazers_count']));
+  useEffect(() => { 
+    getRepoNotation(issue.query).then((value) => setStargazers(value['stargazers_count'])); 
+  }, [issue])
 
 
   const lint_tmp = "https://github.com/";
